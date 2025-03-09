@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Document(collection = "widgets")
-public class Widget {
+public class Widget implements AssignEntity<Widget> {
     @Id
     private String id;
     private String title;
@@ -25,5 +25,14 @@ public class Widget {
 
     public Widget() {
         this.id = UUID.randomUUID().toString();
+    }
+
+    @Override
+    public Widget assign(Widget entity) {
+        this.title = entity.title;
+        this.chartType = entity.chartType;
+        this.labels = entity.labels;
+        this.datasets = entity.datasets;
+        return this;
     }
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -18,5 +19,13 @@ public class WidgetService {
 
     public Widget createWidget(Widget widget) {
         return widgetRepository.save(widget);
+    }
+
+    public Widget updateWidget(String id, Widget updateWidget) {
+        Optional<Widget> widget = widgetRepository.findById(id);
+        if (widget.isEmpty()) {
+            throw new RuntimeException("No widget with ID of '" + id + "'");
+        }
+        return widgetRepository.save(widget.get().assign(updateWidget));
     }
 }

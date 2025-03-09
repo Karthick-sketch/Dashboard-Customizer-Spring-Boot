@@ -26,4 +26,9 @@ public class WidgetController {
     public ResponseEntity<Widget> createWidget(@RequestBody Widget widget) {
         return ResponseEntity.status(HttpStatus.CREATED).body(widgetService.createWidget(widget));
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Widget> updateWidget(@PathVariable String id, @RequestBody Widget widget) {
+        return ResponseEntity.ok(widgetService.updateWidget(id, widget));
+    }
 }
