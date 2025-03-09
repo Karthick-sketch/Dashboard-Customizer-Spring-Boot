@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Game Story Votes",
+    "chartType" : "0",
+    "labels": ["The Last of Us", "Dead Space", "Max Payne 3"],
+    "datasets": [{ "data": [76, 10, 15] }]
+  },
+  {
+    "title": "Game Story Votes",
+    "chartType" : "1",
+    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+    "datasets": [
+      {
+        "data": [65, 59, 80, 81, 56, 55, 40],
+        "label": "Series A",
+        "fill": true,
+        "tension": 0.5,
+        "borderColor": "black",
+        "backgroundColor": "rgba(255,0,0,0.3)"
+      }
+    ]
+  }
+]
