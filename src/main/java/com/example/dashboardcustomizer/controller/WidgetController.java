@@ -31,4 +31,10 @@ public class WidgetController {
     public ResponseEntity<Widget> updateWidget(@PathVariable String id, @RequestBody Widget widget) {
         return ResponseEntity.ok(widgetService.updateWidget(id, widget));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Widget> deleteWidget(@PathVariable String id) {
+        widgetService.deleteWidget(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

@@ -17,15 +17,23 @@ public class WidgetService {
         return widgetRepository.findAll();
     }
 
+    public Widget getWidget(String id) {
+        Optional<Widget> widget = widgetRepository.findById(id);
+        if (widget.isEmpty()) {
+            throw new RuntimeException("No widget with ID of '" + id + "'");
+        }
+        return widget.get();
+    }
+
     public Widget createWidget(Widget widget) {
         return widgetRepository.save(widget);
     }
 
     public Widget updateWidget(String id, Widget updateWidget) {
-        Optional<Widget> widget = widgetRepository.findById(id);
-        if (widget.isEmpty()) {
-            throw new RuntimeException("No widget with ID of '" + id + "'");
-        }
-        return widgetRepository.save(widget.get().assign(updateWidget));
+        return widgetRepository.save(getWidget(id).assign(updateWidget));
+    }
+
+    public void deleteWidget(String id) {
+        widgetRepository.delete(getWidget(id));
     }
 }
