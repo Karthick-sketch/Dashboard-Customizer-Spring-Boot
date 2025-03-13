@@ -29,8 +29,8 @@ public class WidgetService {
         return widgetRepository.save(widget);
     }
 
-    public Widget updateWidget(String id, Widget updateWidget) {
-        return widgetRepository.save(getWidget(id).assign(updateWidget));
+    public Widget updateWidget(String id, Widget updatedWidget) {
+        return widgetRepository.save(getWidget(id).assign(updatedWidget));
     }
 
     public void deleteWidget(String id) {

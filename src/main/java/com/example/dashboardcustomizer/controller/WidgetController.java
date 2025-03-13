@@ -28,8 +28,8 @@ public class WidgetController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Widget> updateWidget(@PathVariable String id, @RequestBody Widget widget) {
-        return ResponseEntity.ok(widgetService.updateWidget(id, widget));
+    public ResponseEntity<Widget> updateWidget(@PathVariable String id, @RequestBody Widget updatedWidget) {
+        return ResponseEntity.ok(widgetService.updateWidget(id, updatedWidget));
     }
 
     @DeleteMapping("/{id}")
